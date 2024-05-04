@@ -1,30 +1,48 @@
 <?php
-  $pictures = array('brakes.png', 'headlight.png', 
-                    'spark_plug.png', 'steering_wheel.png', 
-                    'tire.png', 'wiper_blade.png');
+$auto_parts = array(
+    array('title' => 'Brakes', 'picture' => 'brakes.png'),
+    array('title' => 'Headlight', 'picture' => 'headlight.png'),
+    array('title' => 'Spark Plug', 'picture' => 'spark_plug.png'),
+    array('title' => 'Steering Wheel', 'picture' => 'steering_wheel.png'),
+    array('title' => 'Tire', 'picture' => 'tire.png'),
+    array('title' => 'Wiper Blade', 'picture' => 'wiper_blade.png')
+);
 
-  shuffle($pictures);
+shuffle($auto_parts);
+
 ?>
+
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Bob's Auto Parts</title>
-  </head>
-  <body>
-    <h1>Bob's Auto Parts</h1>
-      <div align="center">
-      <table style="width: 100%; border: 0">
-        <tr>
+    <style>
+        td {
+            width: 16%;
+            text-align: center;
+            vertical-align: top;
+            padding: 10px;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100px;
+        }
+    </style>
+</head>
+<body>
+<h1>Steven Halla</h1>
+<h1>Bob's Auto Parts</h1>
+<table border="1" style="width: 100%;">
+    <tr>
         <?php
-        for ($i = 0; $i < 3; $i++) {
-          echo "<td style=\"width: 33%; text-align: center\">
-                <img src=\"";
-          echo $pictures[$i];
-          echo "\"/></td>";
+        foreach ($auto_parts as $part) {
+            echo "<td>";
+            echo "<strong>" . $part['title'] . "</strong><br>"; // Title above the image
+            echo "<img src=\"" . $part['picture'] . "\" alt=\"" . $part['title'] . "\">";
+            echo "</td>";
         }
         ?>
-        </tr>
-     </table>
-     </div>
-  </body>
+    </tr>
+</table>
+</body>
 </html>
